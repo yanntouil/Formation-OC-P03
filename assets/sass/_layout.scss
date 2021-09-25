@@ -1,0 +1,184 @@
+/**
+ * Project Ohmyfood
+ * Layout
+ */
+
+
+
+
+/**
+ * Body
+ */
+
+body {
+    display: flex; flex-direction: column;
+    background-color: $white;
+    color: $text-color;
+    font-family: $font-family;
+    font-size: $text-base;
+    font-weight: $font-normal;
+    line-height: $line-height;
+    @include media-min('sm') {
+        background-color: $highlight-200;
+    }
+}
+
+
+
+
+/**
+ * Main container
+ */
+
+.container {
+    position: relative;
+    display: flex; flex-direction: column;
+    width: 100%;
+    @include media-min('sm') {
+        margin: $margin auto;
+        border-radius: 1rem;
+        background-color: $white;
+        @include md-box-shadow(2);
+    }
+    @include media-min('xl') {
+        max-width: map-get($breakpoints, 'xl');
+    }
+    @include media-between('lg', 'xl') {
+        max-width: map-get($breakpoints, 'lg');
+    }
+    @include media-between('md', 'lg') {
+        max-width: map-get($breakpoints, 'md');
+    }
+    @include media-between('sm', 'md') {
+        max-width: map-get($breakpoints, 'sm');
+    }
+}
+
+
+
+
+/**
+ * Header
+ */
+
+.header {
+    position: relative; z-index: 2;
+    display: flex; 
+    @include media-min('sm') {
+        box-shadow: none;
+        padding: 2rem 1rem;
+        border-bottom: 5px solid $secondary-500;
+        &:before {
+            position: absolute; right: 0; bottom: 0; left: 0;
+            border-bottom: 5px solid $primary-500;
+            content: '';
+        }
+    }
+    @include media-max('sm') {
+        justify-content: center;
+        height: $header-height;
+        padding: 1.25rem 1rem 0;
+        @include md-box-shadow(1);
+    }
+    &-logo svg {
+        @include media-min('sm') {
+            width: 16rem;
+        }
+        @include media-max('sm') {
+            width: $logo-width;
+        }
+    }
+    &-back {
+        position: absolute; top: 0; bottom: 0;
+        @include media-min('sm') {
+            right: 2rem;
+            display: flex; align-items: center;
+            &-text {
+                color: $gray-800;
+                font-weight: $font-bold;
+            }
+            &-icon { display: none; }
+        }
+        @include media-max('sm') {
+            left: $margin;
+            margin-top: 20px;
+            &-icon {
+                height: 1.125rem;
+                color: $gray-800;
+            }
+            &-text { display: none; }
+        }
+    }
+}
+
+
+
+
+/**
+ * Main
+ */
+
+.main {
+    flex-grow: 1;
+    display: flex; flex-direction: column;
+}
+
+
+
+/**
+ * Footer
+ */
+
+.footer {
+    background: $gray-800;
+    color: $white;
+    @include media-min('sm') {
+        border-radius: 0 0 $card-border-radius $card-border-radius;
+    }
+    &-wrapper {
+        display: flex;
+        @include media-min('sm') {
+            justify-content: space-between; align-items: center;
+            padding: 2rem;
+        }
+        @include media-max('sm') {
+            flex-direction: column;
+            gap: 0.6875rem;
+            padding: 1.125rem 1.5625rem 2.25rem;
+        }
+    }
+    &-title svg {
+        width: 6rem;
+        path { fill: currentColor; }
+    }
+    &-list {
+        @include media-min('lg') {
+            display: flex; justify-content: space-between; align-items: center;
+            gap: 2rem;
+        }
+        @include media-min('xl') {
+            position: relative; z-index: 4;// Container background
+        }
+        @include media-between('sm', 'lg') {
+            display: grid; grid-template-columns: auto auto;
+            gap: 0.5rem 2rem;
+            li:nth-child(4n+1), li:nth-child(4n+3) { order: 1; }
+            li:nth-child(4n+2), li:nth-child(4n+4) { order: 2; }
+        }
+        @include media-max('sm') {
+            display: flex; flex-direction: column;
+            gap: 0.125rem;
+        }
+    }
+    &-link {
+        &-icon {
+            display: inline-flex; justify-content: center; align-items: center;
+            width: 0.875rem;
+            margin-right: 0.5rem;
+            svg { height: 0.875rem; }
+        }
+    }
+    a:hover {// Link + logo
+        color: $secondary-500;
+    }
+}

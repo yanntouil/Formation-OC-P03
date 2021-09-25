@@ -1,0 +1,87 @@
+/**
+ * Project Ohmyfood
+ * Variables
+ */
+
+
+
+
+// Breakpoint
+ $breakpoints: (
+    'sm':   640px,
+    'md':   768px,
+    'lg':   1024px,
+    'xl':   1280px,
+    '2xl':  1536px
+    ) !default;
+
+// Colors
+$white: #ffffff;
+$black: #000000;
+
+$primary-100: #F5EDFF;
+$primary-500: #9356DC;
+
+$secondary-500: #FF79DA;
+
+$highlight-200: #99E2D0;
+$highlight-500: #008462;
+
+$gray-100: #f4f4f5;
+$gray-200: #e4e4e7;
+$gray-300: #d4d4d8;
+$gray-400: #a1a1aa;
+$gray-500: #71717a;
+$gray-600: #52525b;
+$gray-700: #3f3f46;
+$gray-800: #27272a;
+$gray-900: #18181B;
+
+// Font
+$font-family: 'Roboto', sans-serif;
+
+$text-sm: 0.875rem;
+$text-base: 1rem;
+$text-lg: 1.5rem;
+$text-xl: 1.5rem;
+
+$line-height: 1.2;
+
+$font-light: 300;
+$font-normal: 400;
+$font-bold: 500;
+$font-extrabold: 700;
+
+// margin
+$margin: 2rem;
+$margin-sm: 1.25rem;
+$gap: 3rem;
+
+// Component
+$card-border-radius: 1rem;
+$card-margin: 0.875rem;
+
+$like-size: 1.5625rem;
+$like-bubble-size: $like-size * 2;
+$like-bubble-color: $secondary-500;
+$like-particle-size: $like-bubble-size * 0.08;
+$like-timing: 1s;
+
+// Layout
+$background-color: $white;
+$text-color: $black;
+
+$header-height: 3.9375rem;
+$logo-width: 10.25rem;
+
+
+
+
+
+
+
+
+
+
+
+

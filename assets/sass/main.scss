@@ -1,0 +1,31 @@
+/**
+ * Project Ohmyfood
+ * Main Sass file
+ */
+
+@use 'sass:math';
+
+// Variables
+@import 'variables';
+
+// Mixins
+@import 'mixin-box-shadow';
+@import 'mixin-media-queries';
+
+// Reset
+@import 'reset';
+
+// Components
+@import 'badge';
+@import 'button';
+@import 'card';
+@import 'course';
+@import 'like';
+@import 'section';
+
+// Layout
+@import 'layout';
+
+// Pages
+@import 'home';
+@import 'restaurant';

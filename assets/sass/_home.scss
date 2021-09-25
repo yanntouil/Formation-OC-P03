@@ -1,0 +1,211 @@
+/**
+ * Project Ohmyfood
+ * Home page
+ */
+
+
+
+ 
+
+/**
+ * Location section
+ */
+
+.location {
+    display: flex; justify-content: center; align-items: center;
+    @include media-min('sm') {
+        position: absolute; top: $margin; right: $margin;
+    }
+    @include media-max('sm') {
+        height: 3.125rem;
+        background-color: $gray-200;
+    }
+    &-wrapper {
+        display: flex; align-items: flex-end;
+        gap: 1rem;
+        @include media-max('sm') {
+            width: $logo-width;
+        }
+    }
+    &-text {
+        color: $gray-800;
+        font-weight: $font-bold;
+    }
+    &-icon {
+        width: 0.75rem;
+        color: $gray-800;
+    }
+}
+
+
+
+
+/**
+ * Booking section
+ */
+
+.booking {
+    background-color: $gray-100;
+    &-wrapper {
+        display: flex; flex-direction: column; justify-content: center; align-items: center;
+        height: 18rem;
+        padding: 1rem;
+        text-align: center;
+    }
+    &-title {
+        padding-bottom: 0.875rem;
+        font-size: $text-xl;
+        font-weight: $font-extrabold;
+        line-height: ($text-base * 1.2);
+        @include media-max('sm') {
+            max-width: 18rem;
+        }
+    }
+    &-secondary {
+        padding-bottom: 1.875rem;
+        font-size: 1.125rem;
+        font-weight: $font-light;
+        line-height: ($text-base * 1.2);
+        @include media-max('sm') {
+            max-width: 20rem;
+        }
+    }
+}
+
+
+
+
+/**
+ * How to section
+ */
+
+.howto {
+    display: flex; flex-direction: column;
+    gap: $margin;
+    @include media-min('xl') {
+        align-items: center;
+    }
+    @include media-between('sm', 'lg') {
+        align-items: center;
+    }
+    @include media-min('sm') {
+        margin: $gap $margin;
+    }
+    @include media-max('sm') {
+        margin: $gap $margin-sm;
+    }
+    .section-grid {
+        @include media-min('lg') {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        @include media-between('sm', 'lg') {
+            grid-template-rows: auto auto auto;
+            width: 25rem;
+            gap: $margin;
+        }
+        @include media-max('sm') {
+            grid-template-columns: 1fr;
+            width: 100%;
+            gap: 1.5rem;
+        }
+    }
+    .card {
+        --gap: 1.25rem;
+        --label-height: 1.5rem;
+        flex-direction: row; align-items: center;
+        margin-left: calc(var(--label-height) / 2);
+        padding: 1.625rem var(--gap) 1.625rem 0;
+        border-radius: 1.5rem;
+        background-color: $gray-100;
+        gap: var(--gap);
+        @include md-box-shadow(2);
+        &:hover {
+            background-color: $primary-100;
+            & svg {
+                color: $primary-500;
+            }
+        }
+        &-label {
+            flex-shrink: 0;
+            display: flex; justify-content: center; align-items: center;
+            width: var(--label-height); height: var(--label-height);
+            margin-left: calc(var(--label-height) * -1 / 2);
+            border-radius: calc(var(--label-height) / 2);
+            background-color: $primary-500;
+            &-text {
+                margin-bottom: -2px;// visual compensation
+                color: $white;
+                font-size: 0.875rem;
+                line-height: 0.875rem;
+            }
+        }
+        &-header {
+            flex-grow: 1;
+            display: flex; align-items: center;
+            padding: 0;
+            gap: var(--gap);
+            &-icon {
+                --icon-height: 1.25rem;
+                flex-shrink: 0;
+                display: flex; justify-content: center; align-items: center;
+                width: var(--icon-height); height: var(--icon-height);
+                svg {
+                    height: var(--icon-height);
+                    color: $gray-500;
+                }
+            }
+            &-title {
+                font-weight: $font-bold;
+            }
+        }
+    }
+}
+
+
+
+
+/**
+ * Restaurant section
+ */
+
+.restaurants {
+    display: flex; flex-direction: column;
+    gap: $margin;
+    background-color: $gray-100;
+    @include media-min('sm') {
+        padding: $gap $margin;
+    }
+    @include media-max('sm') {
+        padding: $gap $margin-sm;
+    }
+    .section-grid {
+        @include media-min('sm') {
+            gap: $margin;
+        }
+        @include media-max('sm') {
+            gap: $margin-sm;
+        }
+        @include media-min('xl') {
+            grid-template-columns: repeat(4, 1fr);
+        }
+        @include media-between('md', 'xl') {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        @include media-max('md') {
+            grid-template-columns: 1fr;
+        }
+    }
+    .card {
+        &-picture {
+            img {// Visual correction
+                --top: -25%;
+                position: absolute; top: var(--top);
+                height: calc(var(--top) * -1 + 100%);
+            }
+            .badge {
+                position: absolute; top: $card-margin; right: $card-margin;
+            }
+        }
+    }
+}

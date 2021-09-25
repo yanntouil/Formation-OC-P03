@@ -1,0 +1,23 @@
+/**
+ * Project Ohmyfood
+ * Button component
+ */
+
+
+
+
+
+.button {
+    --button-height: 3rem ;
+    height: var(--button-height);
+    padding: 0 calc(var(--button-height) / 2);
+    border-radius: calc(var(--button-height) / 2);
+    background: linear-gradient(175deg, $secondary-500 0%, $primary-500 100%);
+    @include md-box-shadow(1);
+    color: $white;
+    cursor: pointer;
+    &:hover, &:focus {
+        background: linear-gradient(175deg, lighten($secondary-500, 5%) 0%, lighten($primary-500, 5%) 100%);
+        @include md-box-shadow(2);
+    }
+}

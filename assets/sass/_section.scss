@@ -1,0 +1,18 @@
+/**
+ * Project Ohmyfood
+ * Section component
+ */
+
+
+
+
+
+.section {
+    &-title {
+        font-weight: $font-extrabold;
+        font-size: $text-xl;
+    }
+    &-grid {
+        display: grid;
+    }
+}

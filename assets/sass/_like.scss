@@ -1,0 +1,150 @@
+/**
+ * Project Ohmyfood
+ * Like Component
+ */
+
+
+
+
+
+/**
+ * Mixin Particles
+ */
+
+@mixin like-particles($k) {
+    $shadow-list: ();// init shadow list
+    $n-groups: 7;// number of groups
+    $group-base-angle: math.div(360deg, $n-groups);
+    $group-distr-r: (1 + $k * 0.25) * math.div($like-bubble-size, 2);// circular distribution radius for groups
+    $n-particles: 2;
+    $particle-base-angle: math.div(360deg, $n-particles);
+    $particle-off-angle: 60deg; // offset angle from radius
+    $spread-r: $k * -1 * $like-particle-size * 0.5;
+    @for $i from 0 to $n-groups {
+        $group-curr-angle: $i * $group-base-angle - 90deg;// current group angle, starting fron 12
+        // coords of the central point of current group of particles
+        $xg: $group-distr-r * math.cos($group-curr-angle);
+        $yg: $group-distr-r * math.sin($group-curr-angle);
+            @for $j from 0 to $n-particles {
+                $particle-curr-angle: $group-curr-angle + $particle-off-angle + $j * $particle-base-angle;
+                $xs: $xg + $like-particle-size * math.cos($particle-curr-angle);
+                $ys: $yg + $like-particle-size * math.sin($particle-curr-angle);
+                $shadow-list: $shadow-list, $xs $ys 0 $spread-r hsl(($i + $j) * $group-base-angle, 100%, 75%);// add to shadow list
+            }
+    }
+    box-shadow: $shadow-list;
+}
+
+
+
+
+/**
+ * Mixin Bubble keyframe
+ */
+
+@mixin like-bubble($border-width) {
+    transform: scale(1);
+    border-color: $like-bubble-color;
+    border-width: $border-width;
+}
+
+
+
+
+/**
+ * Like button
+ */
+
+.like {
+    position: relative;
+    width: $like-size; height: $like-size;
+    cursor: pointer;
+    .like-heart-solid {
+        position: absolute; top: 0; z-index: 2;
+        width: $like-size; height: $like-size;
+        opacity: 0;
+        --color-start: #{$primary-500};
+        --color-end: #{$secondary-500};
+        path {
+            fill: url(#like-gradient) $gray-800;
+        }
+    }
+    .like-heart-light {
+        position: absolute; top: 0; z-index: 2;
+        width: $like-size; height: $like-size;
+        color: $gray-800;
+        opacity: 1;
+    }
+    &:before, &:after {
+        position: absolute; top: 50%; left: 50%; z-index: 1;
+        border-radius: 50%;
+        content: '';
+    }
+    &:before {// Bubble
+        width: $like-bubble-size; height: $like-bubble-size;
+        margin: $like-bubble-size * 0.5 * -1;
+        border: ($like-bubble-size * 0.5) solid $like-bubble-color;
+        transform: scale(0);
+    }
+    &:after {// Particles
+		margin: $like-particle-size * 0.5 * -1;
+		width: $like-particle-size; height: $like-particle-size;
+        @include like-particles(1);
+    }
+    // Hover state
+    &:hover, &:focus {
+        .like-heart-solid {
+            opacity: 1;
+            will-change: transform, opacity;
+            animation: animate-like-heart $like-timing cubic-bezier(.17, .89, .32, 1.49);
+        }
+        .like-heart-light {
+            will-change: transform, opacity;
+            opacity: 0;
+        }
+        &:before, &:after {
+            animation: inherit;
+            animation-timing-function: cubic-bezier(.21, .61, .35, 1);// ease-out
+        }
+        &:before {// Bubble
+            will-change: transform, border-width, border-color;
+            animation: animate-like-bubble $like-timing;// animation-name: animate-like-bubble;
+        }
+        &:after {// Particles
+            will-change: opacity, box-shadow;
+            animation: animate-like-particles $like-timing;//animation-name: animate-like-particles;
+        }
+    }
+}
+
+
+
+
+/**
+ * Animations
+ */
+
+@keyframes animate-like-heart {
+    0%, 17.5% {
+        transform: scale(0);
+    }
+}
+
+@keyframes animate-like-bubble {
+    15% {
+        @include like-bubble($like-bubble-size * 0.5);
+    }
+    30%, 100% {
+        @include like-bubble(0);
+    }
+}
+
+@keyframes animate-like-particles {
+    0%, 20% {
+        opacity: 0;
+    }
+    25% {
+      opacity: 1;
+      @include like-particles(0);
+    }
+}

@@ -1,0 +1,17 @@
+/**
+ * Project Ohmyfood
+ * Badge component
+ */
+
+
+
+
+
+.badge {
+    padding: 0.125rem 0.75rem;
+    border-radius: 0.125rem;
+    background: $highlight-200;
+    color: $highlight-500;
+    font-weight: $font-bold;
+    font-size: $text-sm;
+}
