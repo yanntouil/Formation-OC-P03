@@ -197,6 +197,8 @@
         }
     }
     .card {
+        transition: transform 300ms ease-in-out;
+        will-change: transform;
         &-picture {
             img {// Visual correction
                 --top: -25%;
@@ -206,6 +208,9 @@
             .badge {
                 position: absolute; top: $card-margin; right: $card-margin;
             }
+        }
+        &:hover {
+            transform: scale(1.03);
         }
     }
 }
