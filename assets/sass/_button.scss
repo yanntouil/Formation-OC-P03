@@ -13,6 +13,7 @@
     padding: 0 math.div($button-height, 2);
     border-radius: math.div($button-height, 2);
     background: linear-gradient(175deg, $secondary-500 0%, $primary-500 100%);
+    transition: all .3s ease-in-out;
     @include md-box-shadow(1);
     color: $white;
     cursor: pointer;

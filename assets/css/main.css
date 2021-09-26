@@ -108,6 +108,7 @@ button, input {
   padding: 0 1.5rem;
   border-radius: 1.5rem;
   background: linear-gradient(175deg, #FF79DA 0%, #9356DC 100%);
+  transition: all 0.3s ease-in-out;
   box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.24), 0 1.5px 6px rgba(0, 0, 0, 0.12);
   color: #ffffff;
   cursor: pointer;
@@ -747,6 +748,7 @@ body {
   .header-back-text {
     color: #27272a;
     font-weight: 500;
+    transition: color 0.3s ease-in-out;
   }
   .header-back:hover .header-back-text {
     color: #9356DC;
@@ -856,6 +858,9 @@ body {
 }
 .footer-link-icon svg {
   height: 0.875rem;
+}
+.footer a {
+  transition: color 0.3s ease-in-out;
 }
 .footer a:hover {
   color: #FF79DA;
@@ -1002,6 +1007,10 @@ body {
   background-color: #f4f4f5;
   gap: var(--gap, 1.25rem);
   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.23), 0 3px 12px rgba(0, 0, 0, 0.16);
+  transition: background-color 0.3s ease-in-out;
+}
+.howto .card svg {
+  transition: color 0.3s ease-in-out;
 }
 .howto .card:hover {
   background-color: #F5EDFF;

@@ -98,6 +98,7 @@ body {
             &-text {
                 color: $gray-800;
                 font-weight: $font-bold;
+                transition: color .3s ease-in-out;
             }
             &:hover &-text {
                 color: $primary-500;
@@ -183,7 +184,10 @@ body {
             svg { height: 0.875rem; }
         }
     }
-    a:hover {// Link + logo
-        color: $secondary-500;
+    a {
+        transition: color .3s ease-in-out;
+        &:hover {// Link + logo
+            color: $secondary-500;
+        }
     }
 }
