@@ -8,19 +8,19 @@
 
 
 @mixin media-min($breakpoint) {
-    @media (min-width: map-get($breakpoints, $breakpoint)) {
+    @media screen and (min-width: map-get($breakpoints, $breakpoint)) {
         @content;
     }
 }
 
 @mixin media-max($breakpoint) {
-    @media (max-width: map-get($breakpoints, $breakpoint) - 0.01px) {
+    @media screen and (max-width: map-get($breakpoints, $breakpoint) - 0.01px) {
         @content;
     }
 }
 
 @mixin media-between($breakpoint-1, $breakpoint-2) {
-    @media (min-width: map-get($breakpoints, $breakpoint-1)) and (max-width: map-get($breakpoints, $breakpoint-2) - 0.01px) {
+    @media screen and (min-width: map-get($breakpoints, $breakpoint-1)) and (max-width: map-get($breakpoints, $breakpoint-2) - 0.01px) {
         @content;
     }
 }

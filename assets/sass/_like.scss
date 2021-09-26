@@ -75,7 +75,7 @@
         opacity: 1;
     }
     &-gradient {// Hide gradient SVG
-        width: 0; height: 0;
+        width: 0; height: 0; position: absolute;
     }
     &:before, &:after {
         position: absolute; top: 50%; left: 50%; z-index: 1;

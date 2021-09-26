@@ -12,7 +12,6 @@
 
 body {
     display: flex; flex-direction: column;
-    background-color: $white;
     color: $text-color;
     font-family: $font-family;
     font-size: $text-base;
@@ -20,6 +19,9 @@ body {
     line-height: $line-height;
     @include media-min('sm') {
         background-color: $highlight-200;
+    }
+    @include media-max('sm') {
+        background-color: $white;
     }
 }
 
