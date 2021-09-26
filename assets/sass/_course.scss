@@ -31,7 +31,7 @@
     $course-delay: .2s;// Delay between popping up
     $course-timing: 0s;// Init timer
     @for $i from 1 to 4 {// Courses
-        @for $ii from 1 to 4 {// Course
+        @for $ii from 1 to 5 {// Course
             &:nth-child(3n+#{$i}) .course:nth-child(4n+#{$ii}) {
                 animation-duration: #{$course-timing}, 1s;
                 animation-delay: 0s, #{$course-timing};
