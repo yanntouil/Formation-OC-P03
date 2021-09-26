@@ -57,14 +57,13 @@
 
 .like {
     position: relative;
+    display: block;
     width: $like-size; height: $like-size;
     cursor: pointer;
     .like-heart-solid {
         position: absolute; top: 0; z-index: 2;
         width: $like-size; height: $like-size;
         opacity: 0;
-        --color-start: #{$primary-500};
-        --color-end: #{$secondary-500};
         path {
             fill: url(#like-gradient) $gray-800;
         }
@@ -116,7 +115,10 @@
         }
     }
 }
-
+#like-gradient {
+    --color-start: #{$primary-500};
+    --color-end: #{$secondary-500};
+}
 
 
 
