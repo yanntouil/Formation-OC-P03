@@ -918,7 +918,7 @@ body {
 .restaurants .card-picture img {
   --top: -25%;
   position: absolute;
-  top: var(--top);
+  top: var(--top, -25%);
   height: calc(var(--top, -25%) * -1 + 100%);
 }
 .restaurants .card-picture .badge {
