@@ -40,7 +40,7 @@ h1, h2, h3, h4, h5, h6, p {
   font-weight: normal;
 }
 
-ul, li {
+ul, ol, li {
   margin: 0;
   padding: 0;
   text-indent: 0;
@@ -459,6 +459,11 @@ button, input {
 /**
  * Loader
  */
+#loader-text {
+  font-family: "Shrikhand", cursive;
+  font-size: 160px;
+}
+
 .loader {
   position: fixed;
   top: 0;
@@ -470,7 +475,7 @@ button, input {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(0.75rem);
   will-change: transform, opacity;
   transform: translateX(100%);
@@ -505,10 +510,6 @@ button, input {
   .loader svg {
     width: 100%;
   }
-}
-.loader #loader-text {
-  font-family: "Shrikhand", cursive;
-  font-size: 10rem;
 }
 .loader-text {
   fill: none;
