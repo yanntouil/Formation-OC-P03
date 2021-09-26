@@ -75,7 +75,6 @@ button, input {
 .sr-only {
   border: 0 !important;
   clip: rect(1px, 1px, 1px, 1px) !important;
-  -webkit-clip-path: inset(50%) !important;
   clip-path: inset(50%) !important;
   height: 1px !important;
   margin: -1px !important;
@@ -105,9 +104,9 @@ button, input {
  */
 .button {
   --button-height: 3rem ;
-  height: var(--button-height);
-  padding: 0 calc(var(--button-height) / 2);
-  border-radius: calc(var(--button-height) / 2);
+  height: 3rem;
+  padding: 0 1.5rem;
+  border-radius: 1.5rem;
   background: linear-gradient(175deg, #FF79DA 0%, #9356DC 100%);
   box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.24), 0 1.5px 6px rgba(0, 0, 0, 0.12);
   color: #ffffff;
@@ -814,11 +813,11 @@ body {
   --label-height: 1.5rem;
   flex-direction: row;
   align-items: center;
-  margin-left: calc(var(--label-height) / 2);
-  padding: 1.625rem var(--gap) 1.625rem 0;
+  margin-left: calc(var(--label-height, 1.5rem) / 2);
+  padding: 1.625rem var(--gap, 1.25rem) 1.625rem 0;
   border-radius: 1.5rem;
   background-color: #f4f4f5;
-  gap: var(--gap);
+  gap: var(--gap, 1.25rem);
   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.23), 0 3px 12px rgba(0, 0, 0, 0.16);
 }
 .howto .card:hover {
@@ -832,10 +831,10 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: var(--label-height);
-  height: var(--label-height);
-  margin-left: calc(var(--label-height) * -1 / 2);
-  border-radius: calc(var(--label-height) / 2);
+  width: var(--label-height, 1.5rem);
+  height: var(--label-height, 1.5rem);
+  margin-left: calc(var(--label-height, 1.5rem) * -1 / 2);
+  border-radius: calc(var(--label-height, 1.5rem) / 2);
   background-color: #9356DC;
 }
 .howto .card-label-text {
@@ -849,7 +848,7 @@ body {
   display: flex;
   align-items: center;
   padding: 0;
-  gap: var(--gap);
+  gap: var(--gap, 1.25rem);
 }
 .howto .card-header-icon {
   --icon-height: 1.25rem;
@@ -857,11 +856,11 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: var(--icon-height);
-  height: var(--icon-height);
+  width: var(--icon-height, 1.25rem);
+  height: var(--icon-height, 1.25rem);
 }
 .howto .card-header-icon svg {
-  height: var(--icon-height);
+  height: var(--icon-height, 1.25rem);
   color: #71717a;
 }
 .howto .card-header-title {
@@ -920,7 +919,7 @@ body {
   --top: -25%;
   position: absolute;
   top: var(--top);
-  height: calc(var(--top) * -1 + 100%);
+  height: calc(var(--top, -25%) * -1 + 100%);
 }
 .restaurants .card-picture .badge {
   position: absolute;
