@@ -29,7 +29,7 @@
     }
     // Progressive card pop
     $course-delay: .3s;// Delay between popping up
-    $course-timing: 0;// Init timer
+    $course-timing: 0s;// Init timer
     @for $i from 1 to 4 {// Courses
         @for $ii from 1 to 4 {// Course
             &:nth-child(3n+#{$i}) .course:nth-child(3n+#{$ii}) {
