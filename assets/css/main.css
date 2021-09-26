@@ -188,39 +188,39 @@ button, input {
 }
 .courses:nth-child(3n+1) .course:nth-child(4n+1) {
   animation-duration: 0s, 1s;
-  animation-delay: 0ms, 0s;
+  animation-delay: 0s, 0s;
 }
 .courses:nth-child(3n+1) .course:nth-child(4n+2) {
-  animation-duration: 0.3s, 1s;
-  animation-delay: 0ms, 0.3s;
+  animation-duration: 0.2s, 1s;
+  animation-delay: 0s, 0.2s;
 }
 .courses:nth-child(3n+1) .course:nth-child(4n+3) {
-  animation-duration: 0.6s, 1s;
-  animation-delay: 0ms, 0.6s;
+  animation-duration: 0.4s, 1s;
+  animation-delay: 0s, 0.4s;
 }
 .courses:nth-child(3n+2) .course:nth-child(4n+1) {
-  animation-duration: 1.8s, 1s;
-  animation-delay: 0ms, 1.8s;
+  animation-duration: 1.2s, 1s;
+  animation-delay: 0s, 1.2s;
 }
 .courses:nth-child(3n+2) .course:nth-child(4n+2) {
-  animation-duration: 2.1s, 1s;
-  animation-delay: 0ms, 2.1s;
+  animation-duration: 1.4s, 1s;
+  animation-delay: 0s, 1.4s;
 }
 .courses:nth-child(3n+2) .course:nth-child(4n+3) {
-  animation-duration: 2.4s, 1s;
-  animation-delay: 0ms, 2.4s;
+  animation-duration: 1.6s, 1s;
+  animation-delay: 0s, 1.6s;
 }
 .courses:nth-child(3n+3) .course:nth-child(4n+1) {
-  animation-duration: 3.6s, 1s;
-  animation-delay: 0ms, 3.6s;
+  animation-duration: 2.4s, 1s;
+  animation-delay: 0s, 2.4s;
 }
 .courses:nth-child(3n+3) .course:nth-child(4n+2) {
-  animation-duration: 3.9s, 1s;
-  animation-delay: 0ms, 3.9s;
+  animation-duration: 2.6s, 1s;
+  animation-delay: 0s, 2.6s;
 }
 .courses:nth-child(3n+3) .course:nth-child(4n+3) {
-  animation-duration: 4.2s, 1s;
-  animation-delay: 0ms, 4.2s;
+  animation-duration: 2.8s, 1s;
+  animation-delay: 0s, 2.8s;
 }
 
 /**
@@ -237,7 +237,7 @@ button, input {
   box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.24), 0 1.5px 6px rgba(0, 0, 0, 0.12);
   cursor: pointer;
   animation-name: animate-pop-wait, animate-pop-in;
-  animation-timing-function: linear, ease-in-out;
+  animation-timing-function: linear, cubic-bezier(0.25, 0.46, 0.45, 0.94);
   will-change: transform, opacity;
 }
 .course-content {
@@ -304,7 +304,7 @@ button, input {
 @keyframes animate-pop-in {
   from {
     opacity: 0;
-    transform: translateY(1.5rem);
+    transform: translateY(1rem);
   }
   to {
     opacity: 1;
@@ -358,6 +358,10 @@ button, input {
   height: 1.5625rem;
   color: #27272a;
   opacity: 1;
+}
+.like-gradient {
+  width: 0;
+  height: 0;
 }
 .like:before, .like:after {
   position: absolute;
@@ -448,6 +452,167 @@ button, input {
   display: grid;
 }
 
+/**
+ * Project Ohmyfood
+ * Loader Component
+ */
+/**
+ * Loader
+ */
+.loader {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(0.75rem);
+  will-change: transform, opacity;
+  transform: translateX(100%);
+  animation: animate-loader 3s linear;
+}
+@media (min-width: 1280px) {
+  .loader {
+    gap: 3rem;
+  }
+}
+@media (min-width: 640px) and (max-width: 1279.99px) {
+  .loader {
+    gap: 2vw;
+  }
+}
+@media (max-width: 639.99px) {
+  .loader {
+    gap: 6vw;
+  }
+}
+@media (min-width: 1280px) {
+  .loader svg {
+    width: 40rem;
+  }
+}
+@media (min-width: 640px) and (max-width: 1279.99px) {
+  .loader svg {
+    width: 50vw;
+  }
+}
+@media (max-width: 639.99px) {
+  .loader svg {
+    width: 100%;
+  }
+}
+.loader #loader-text {
+  font-family: "Shrikhand", cursive;
+  font-size: 10rem;
+}
+.loader-text {
+  fill: none;
+  stroke-width: 3;
+  stroke-linejoin: round;
+  stroke-dasharray: 70 380;
+  stroke-dashoffset: 0;
+  will-change: transform;
+  animation: animate-stroke 9s infinite linear;
+}
+.loader-text:nth-child(5n+1) {
+  stroke: #9356DC;
+  animation-delay: -1.8s;
+}
+.loader-text:nth-child(5n+2) {
+  stroke: #FF79DA;
+  animation-delay: -3.6s;
+}
+.loader-text:nth-child(5n+3) {
+  stroke: #4acbab;
+  animation-delay: -5.4s;
+}
+.loader-text:nth-child(5n+4) {
+  stroke: #9356DC;
+  animation-delay: -7.2s;
+}
+.loader-text:nth-child(5n+5) {
+  stroke: #FF79DA;
+  animation-delay: -9s;
+}
+.loader-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: calc(var(--spinner-size) * 6);
+}
+@media (min-width: 1280px) {
+  .loader-spinner {
+    --spinner-size: 0.5rem;
+  }
+}
+@media (min-width: 640px) and (max-width: 1279.99px) {
+  .loader-spinner {
+    --spinner-size: .75vw;
+  }
+}
+@media (max-width: 639.99px) {
+  .loader-spinner {
+    --spinner-size: 2vw;
+  }
+}
+.loader-spinner-dot {
+  border-radius: 50%;
+  width: var(--spinner-size);
+  height: var(--spinner-size);
+  will-change: stroke-dashoffset;
+  animation: animate-spinner 1800ms infinite linear;
+}
+.loader-spinner-dot:nth-child(3n+1) {
+  background-color: #9356DC;
+  box-shadow: 0 0 var(--spinner-size) calc(var(--spinner-size) * 2) #9356DC;
+}
+.loader-spinner-dot:nth-child(3n+2) {
+  background-color: #FF79DA;
+  box-shadow: 0 0 var(--spinner-size) calc(var(--spinner-size) * 2) #FF79DA;
+  animation-delay: -1200ms;
+}
+.loader-spinner-dot:nth-child(3n+3) {
+  background-color: #4acbab;
+  box-shadow: 0 0 var(--spinner-size) calc(var(--spinner-size) * 2) #4acbab;
+  animation-delay: -600ms;
+}
+
+/**
+ * Animation
+ */
+@keyframes animate-loader {
+  0% {
+    transform: translateX(0);
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(0);
+  }
+}
+@keyframes animate-stroke {
+  100% {
+    stroke-dashoffset: -450;
+  }
+}
+@keyframes animate-spinner {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 /**
  * Project Ohmyfood
  * Layout

@@ -74,6 +74,9 @@
         color: $gray-800;
         opacity: 1;
     }
+    &-gradient {// Hide gradient SVG
+        width: 0; height: 0;
+    }
     &:before, &:after {
         position: absolute; top: 50%; left: 50%; z-index: 1;
         border-radius: 50%;

@@ -1,0 +1,138 @@
+/**
+ * Project Ohmyfood
+ * Loader Component
+ */
+
+
+
+
+
+$dash-colors: $primary-500, $secondary-500, $highlight-400, $primary-500, $secondary-500;
+$dash: 70;
+$dash-gap: 20;
+$time: 9s;
+$dash-max: length($dash-colors);
+
+/**
+ * Loader
+ */
+
+.loader {
+    position: fixed; top: 0; right: 0; bottom: 0; left: 0; z-index: 100;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    background-color: rgba($white, 0.8);
+    backdrop-filter: blur(.75rem);
+    will-change: transform, opacity;
+    transform: translateX(100%);
+    animation: animate-loader 3s linear;
+    @include media-min('xl') {
+        gap: 3rem;
+    }
+    @include media-between('sm', 'xl') {
+        gap: 2vw;
+    }
+    @include media-max('sm') {
+        gap: 6vw;
+    }
+    svg {
+        @include media-min('xl') {
+            width: 40rem;
+        }
+        @include media-between('sm', 'xl') {
+            width: 50vw;
+        }
+        @include media-max('sm') {
+            width: 100%;
+        }
+    }
+    #loader-text {
+        font-family: 'Shrikhand', cursive;
+        font-size: 10rem;
+    }
+    &-text {
+        fill: none;
+        stroke-width: 3;
+        stroke-linejoin: round;
+        stroke-dasharray: $dash ($dash * ($dash-max - 1) + $dash-gap * $dash-max);
+        stroke-dashoffset: 0;
+        will-change: transform;
+        animation: animate-stroke $time infinite linear;
+        @for $item from 1 through $dash-max {
+            &:nth-child(#{$dash-max}n+#{$item}) {
+                stroke: nth($dash-colors, $item);
+                animation-delay: (math.div($time, $dash-max) * $item * -1);
+            }
+        }
+    }
+    &-spinner {
+        display: flex; justify-content: center; align-items: center;
+        @include media-min('xl') {
+            --spinner-size: 0.5rem;
+        }
+        @include media-between('sm', 'xl') {
+            --spinner-size: .75vw;
+        }
+        @include media-max('sm') {
+            --spinner-size: 2vw;
+        }
+        gap: calc(var(--spinner-size) * 6);
+        &-dot {
+            border-radius: 50%;
+            width: var(--spinner-size); height: var(--spinner-size);
+            $spinner-timing: 1800ms;
+            will-change: stroke-dashoffset;
+            animation: animate-spinner $spinner-timing infinite linear;
+            &:nth-child(3n+1) {
+                background-color: $primary-500;
+                box-shadow: 0 0 var(--spinner-size) calc(var(--spinner-size) * 2) $primary-500 ;
+            }
+            &:nth-child(3n+2) {
+                background-color: $secondary-500;
+                box-shadow: 0 0 var(--spinner-size) calc(var(--spinner-size) * 2) $secondary-500 ;
+                animation-delay: math.div($spinner-timing, 3) * -2;
+            }
+            &:nth-child(3n+3) {
+                background-color: $highlight-400;
+                box-shadow: 0 0 var(--spinner-size) calc(var(--spinner-size) * 2) $highlight-400 ;
+                animation-delay: math.div($spinner-timing, 3) * -1;
+            }
+        }
+    }
+}
+
+
+
+
+/**
+ * Animation
+ */
+@keyframes animate-loader {
+    0% {
+        transform: translateX(0);
+    }
+    80% {// fade out
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(0);
+    }
+}
+  
+@keyframes animate-stroke {
+    100% {
+        stroke-dashoffset: -($dash + $dash-gap) * $dash-max;
+    }
+}
+
+@keyframes animate-spinner {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}

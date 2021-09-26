@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Shrikhand&display=swap" rel="stylesheet">
     <title>Ohmyfood</title>
 </head>
 <body class="home">
@@ -169,7 +169,25 @@
             </div>
         </footer>
     </div>
-    <div class="loader"></div>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" aria-hidden="true"><defs><linearGradient id="like-gradient" gradientTransform="rotate(110)"><stop offset="0%" stop-color="var(--color-start)" /><stop offset="100%" stop-color="var(--color-end)" /></linearGradient></defs></svg>
+    <div class="loader">
+        <svg viewBox="0 0 960 300">
+            <symbol id="loader-text">
+                <text text-anchor="middle" x="50%" y="80%">ohmyfood</text>
+            </symbol>
+            <g class = "g-ants">
+                <use xlink:href="#loader-text" class="loader-text"></use>
+                <use xlink:href="#loader-text" class="loader-text"></use>
+                <use xlink:href="#loader-text" class="loader-text"></use>
+                <use xlink:href="#loader-text" class="loader-text"></use>
+                <use xlink:href="#loader-text" class="loader-text"></use>
+            </g>
+        </svg>
+        <div class="loader-spinner">
+            <div class="loader-spinner-dot"></div>
+            <div class="loader-spinner-dot"></div>
+            <div class="loader-spinner-dot"></div>
+        </div>
+    </div>
+    <svg class="like-gradient" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" aria-hidden="true"><defs><linearGradient id="like-gradient" gradientTransform="rotate(110)"><stop offset="0%" stop-color="var(--color-start)" /><stop offset="100%" stop-color="var(--color-end)" /></linearGradient></defs></svg>
 </body>
 </html>

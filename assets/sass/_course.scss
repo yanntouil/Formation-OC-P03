@@ -28,13 +28,13 @@
         gap: $margin;
     }
     // Progressive card pop
-    $course-delay: .3s;// Delay between popping up
+    $course-delay: .2s;// Delay between popping up
     $course-timing: 0s;// Init timer
     @for $i from 1 to 4 {// Courses
         @for $ii from 1 to 4 {// Course
             &:nth-child(3n+#{$i}) .course:nth-child(4n+#{$ii}) {
                 animation-duration: #{$course-timing}, 1s;
-                animation-delay: 0ms, #{$course-timing};
+                animation-delay: 0s, #{$course-timing};
             }
             $course-timing: $course-timing + $course-delay;
         }
@@ -59,7 +59,7 @@
     @include md-box-shadow(1);
     cursor: pointer;
     animation-name: animate-pop-wait, animate-pop-in;// Fake animation to delay the second one and leave card fade
-    animation-timing-function: linear, ease-in-out;
+    animation-timing-function: linear, cubic-bezier(0.25, 0.46, 0.45, 0.94);
     will-change: transform, opacity;
     &-content {
         flex-grow: 1;
@@ -125,7 +125,7 @@
  */
 
 @keyframes animate-pop-in {// Popping up
-    from { opacity: 0; transform: translateY(1.5rem); }
+    from { opacity: 0; transform: translateY(1rem); }
     to { opacity: 1; transform: translateY(0) }
 }
 
