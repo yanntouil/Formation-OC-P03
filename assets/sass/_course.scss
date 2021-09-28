@@ -28,7 +28,7 @@
         gap: $margin;
     }
     // Progressive card pop
-    $course-delay: .2s;// Delay between popping up
+    $course-delay: .1.5s;// Delay between popping up
     $course-timing: 0s;// Init timer
     @for $i from 1 to 4 {// Courses
         @for $ii from 1 to 5 {// Course
